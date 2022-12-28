@@ -13,13 +13,36 @@ import { ADD_TODO } from "../Context/action.types";
 
 
 const TodoForm = () => {
+
+    const [todoString, setTodoString] = useState("");
+    const {dispatch} = useContext(TodoContext);
+
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+
+        if(todoString === ""){
+            return alert("please enter a todo");
+        }
+
+        const todo = {
+            todoString,
+            Id: v4(),
+        }
+
+        dispatch({
+            type:ADD_TODO,
+            payload: todo
+    })
+
+    setTodoString("");
+}
+
   return (
-    <Form>
+    <Form onSubmit={handleSubmit} >
        <FormGroup>
         <InputGroup>
-        <Input type="text" name="todo" id="todo" placeholder="Enter ToDo" />
-        {/* //value,onchange */}
-       
+        <Input type="text" name="todo" id="todo" placeholder="Enter ToDo" value={todoString}  onChange={(e)=>setTodoString(e.target.value)} />
+     
             <Button color="warning" >
             {/* //onclick  */} Add
             </Button>
