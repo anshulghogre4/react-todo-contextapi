@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css';
 import TodoContext from './Context/TodoContext';
 import  todoReducer from "./Context/reducer"
+import TodoForm from './Components/TodoForm';
 
 
 
@@ -17,6 +18,7 @@ function App() {
 
       <Container fluid>
       <h1>Todo App with context API</h1>
+      <TodoForm/>
       </Container>
     </TodoContext.Provider>
   )
