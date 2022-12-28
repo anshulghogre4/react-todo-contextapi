@@ -26,7 +26,7 @@ const TodoForm = () => {
 
         const todo = {
             todoString,
-            Id: v4(),
+            id: v4(),
         }
 
         dispatch({
@@ -39,7 +39,7 @@ const TodoForm = () => {
 
   return (
     <Form onSubmit={handleSubmit} >
-       <FormGroup>
+      
         <InputGroup>
         <Input type="text" name="todo" id="todo" placeholder="Enter ToDo" value={todoString}  onChange={(e)=>setTodoString(e.target.value)} />
      
@@ -47,7 +47,7 @@ const TodoForm = () => {
             {/* //onclick  */} Add
             </Button>
             </InputGroup>
-        </FormGroup> 
+        
     </Form>
   )
 }
